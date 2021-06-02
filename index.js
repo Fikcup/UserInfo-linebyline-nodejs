@@ -17,17 +17,14 @@ function getUserInput()
 {
     // FIRST QUESTION
     rl.question("What is your name? \n", (name) => {
-        console.log(name);
         rlname = name;
         
         // SECOND QUESTION
         rl.question("What is your age? \n", (age) => {
-            console.log(age);
             rlage = age;
             
             // THIRD QUESTION
             rl.question("What is your favorite color? \n", (color) => {
-                console.log(color);
                 rlcolor = color;
 
                 // LOG DATA
@@ -41,4 +38,3 @@ function getUserInput()
 }
 
 getUserInput();
-rl.close();
