@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Fikcup/node-js-firstproject/issues"
   },
-  "homepage": "https://github.com/Fikcup/node-js-firstproject#readme"
+  "homepage": "https://github.com/Fikcup/node-js-firstproject#readme",
+  "dependencies": {
+    "linebyline": "^1.3.0"
+  }
 }
