@@ -15,17 +15,17 @@ const rl = readline.createInterface ({
 // Ask a question
 function getUserInput()
 {
-    rl.question("What is your name?", (name) => {
+    rl.question("What is your name? \n", (name) => {
         console.log(name);
         rlname = name;
     })
 
-    rl.question("What is your age?", (age) => {
+    rl.question("What is your age? \n", (age) => {
         console.log(age);
         rlage = age;
     })
 
-    rl.question("What is your favorite color?", (color) => {
+    rl.question("What is your favorite color? \n", (color) => {
         console.log(color);
         rlcolor = color;
     })
@@ -34,3 +34,4 @@ function getUserInput()
 }
 
 getUserInput();
+rl.close();
