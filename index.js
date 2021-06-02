@@ -15,25 +15,29 @@ const rl = readline.createInterface ({
 // Ask a question
 function getUserInput()
 {
+    // FIRST QUESTION
     rl.question("What is your name? \n", (name) => {
         console.log(name);
         rlname = name;
-        // Log answer in JSON
-    })
+        
+        // SECOND QUESTION
+        rl.question("What is your age? \n", (age) => {
+            console.log(age);
+            rlage = age;
+            
+            // THIRD QUESTION
+            rl.question("What is your favorite color? \n", (color) => {
+                console.log(color);
+                rlcolor = color;
 
-    rl.question("What is your age? \n", (age) => {
-        console.log(age);
-        rlage = age;
-        // Log answer in JSON
+                // LOG DATA
+                console.log("Hello " + rlname + ", you are " + rlage + " years old and your favorite color is " + rlcolor + ".");
+                
+                // CLOSE CONNECTION
+                rl.close();
+            })
+        })
     })
-
-    rl.question("What is your favorite color? \n", (color) => {
-        console.log(color);
-        rlcolor = color;
-        // Log answer in JSON
-    })
-
-    console.log("Hello " + rlname + ", you are " + rlage + " years old and your favorite color is " + rlcolor + ".");
 }
 
 getUserInput();
