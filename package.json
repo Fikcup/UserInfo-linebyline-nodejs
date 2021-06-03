@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Fikcup/node-js-firstproject#readme",
   "dependencies": {
+    "line-by-line": "^0.1.6",
     "linebyline": "^1.3.0"
   }
 }
