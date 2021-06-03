@@ -32,8 +32,8 @@ function getUserInput()
                 console.log("Hello " + rlname + ", you are " + rlage + " years old and your favorite color is " + rlcolor + ".");
                 
                 // CLOSE CONNECTION
-                rl.close();
                 pushUserArray();
+                anotherUser();
             })
         })
     })
@@ -52,3 +52,23 @@ function pushUserArray()
 }
 
 getUserInput();
+
+function anotherUser()
+{
+    rl.question("Would you like to create another user? Y/N \n", (answer) => {
+        if (answer == "Y")
+        {
+            getUserInput();
+        } 
+        else if (answer == "N")
+        {
+            console.log("Closing application.")
+            rl.close();
+        }
+        else
+        {
+            console.log("Not a valid option please try again.")
+            anotherUser();
+        }
+    })
+}
