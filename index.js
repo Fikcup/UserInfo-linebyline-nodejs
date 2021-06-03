@@ -2,6 +2,7 @@
 var rlname;
 var rlage;
 var rlcolor;
+var userInfo = [];
 
 // Create reading interface
 const readline = require('readline');
@@ -32,9 +33,22 @@ function getUserInput()
                 
                 // CLOSE CONNECTION
                 rl.close();
+                pushUserArray();
             })
         })
     })
+}
+
+function pushUserArray()
+{
+    var user = {
+        name : rlname,
+        age : rlage,
+        color : rlcolor
+}
+
+    userInfo.push(user);
+    console.log(userInfo);
 }
 
 getUserInput();
