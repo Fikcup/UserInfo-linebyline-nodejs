@@ -3,9 +3,13 @@ var rlname;
 var rlage;
 var rlcolor;
 var userInfo = [];
+var usersArr;
 
 // Create reading interface
 const readline = require('readline');
+
+// Creating file system
+var fs = require('fs');
 
 const rl = readline.createInterface ({
     input: process.stdin,
@@ -34,6 +38,7 @@ function getUserInput()
                 // CLOSE CONNECTION
                 pushUserArray();
                 anotherUser();
+                commitUserJson();
             })
         })
     })
@@ -71,4 +76,27 @@ function anotherUser()
             anotherUser();
         }
     })
+}
+
+function commitUserJson()
+{
+    // Read users.json and parse the data into a a JavaScript object
+    fs.readFile('./users.json', 'utf-8', function(err, data) 
+    {
+        if (err) throw err;
+
+        usersArr = JSON.parse(data);
+        usersArr.users.push ({
+            name: rlname,
+            age: rlage,
+            color: rlcolor
+        });
+
+        console.log("Current register users: \n" + usersArr);
+    });
+
+    fs.writeFile('./users.json', JSON.stringify(usersArr), function(err, data) 
+    {
+        if (err) throw err;
+    });
 }
