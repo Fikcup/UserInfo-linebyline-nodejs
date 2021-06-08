@@ -37,8 +37,8 @@ function getUserInput()
                 
                 // CLOSE CONNECTION
                 pushUserArray();
-                anotherUser();
                 commitUserJson();
+                anotherUser();
             })
         })
     })
