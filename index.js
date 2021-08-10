@@ -12,7 +12,7 @@ const readline = require('readline');
 var fs = require('fs');
 
 // Declaring data
-const data = require('./assets/json/users.json');
+const data = require('./users.json');
 
 const rl = readline.createInterface ({
     input: process.stdin,
@@ -84,7 +84,7 @@ function anotherUser()
 function commitUserJson()
 {
     // Read users.json and parse the data into a a JavaScript object
-    fs.readFile('./assets/json/users.json', 'utf-8', function(err, data) 
+    fs.readFile('./users.json', 'utf-8', function(err, data) 
     {
         if (err) throw err;
 
@@ -99,7 +99,7 @@ function commitUserJson()
         console.log("Current register users: \n" + usersArr);
     });
 
-    fs.writeFile('./assets/json/users.json', JSON.stringify(usersArr), function(err) 
+    fs.writeFile('./users.json', JSON.stringify(usersArr), function(err) 
     {
         if (err) throw err;
     });
