@@ -11,6 +11,9 @@ const readline = require('readline');
 // Creating file system
 var fs = require('fs');
 
+// Declaring data
+const data = require('./users.json');
+
 const rl = readline.createInterface ({
     input: process.stdin,
     output: process.stdout,
@@ -37,8 +40,6 @@ function getUserInput()
                 
                 // CLOSE CONNECTION
                 pushUserArray();
-                commitUserJson();
-                anotherUser();
             })
         })
     })
@@ -50,10 +51,12 @@ function pushUserArray()
         name : rlname,
         age : rlage,
         color : rlcolor
-}
+    }
 
     userInfo.push(user);
     console.log(userInfo);
+
+    commitUserJson();
 }
 
 getUserInput();
@@ -85,6 +88,7 @@ function commitUserJson()
     {
         if (err) throw err;
 
+        // Make an array out of the users.json file data and push new user into the array
         usersArr = JSON.parse(data);
         usersArr.users.push ({
             name: rlname,
@@ -95,8 +99,10 @@ function commitUserJson()
         console.log("Current register users: \n" + usersArr);
     });
 
-    fs.writeFile('./users.json', JSON.stringify(usersArr), function(err, data) 
+    fs.writeFile('./users.json', JSON.stringify(usersArr), function(err) 
     {
         if (err) throw err;
     });
+
+    anotherUser();
 }
